@@ -41,3 +41,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Custom
+JmdictFurigana/bin
+JmdictFurigana/obj
+JmdictFurigana.Tests/bin
+JmdictFurigana.Tests/obj
+TestResults
+*.suo

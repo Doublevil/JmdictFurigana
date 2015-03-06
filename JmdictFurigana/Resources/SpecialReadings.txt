@@ -1,0 +1,128 @@
+﻿; This is a text file containing words that have a special reading (熟字訓).
+; These readings may attribute a furigana string to several characters indissociably.
+; A good example of this is:
+; 田舎|いなか
+; You cannot cut it in い.なか or いな.か - the whole expression should have the furigana いなか.
+; Now the reason we do not put these in the OverrideFurigana file is that they sometimes come up
+; as part of other words. Example: 田舎家.
+
+; The format here is:
+; <Kanji reading>|<Kana reading>(|<Solution string>)
+; Specifying the solution string should be done when the special reading is split over multiple
+; characters (e.g. 其処 (そこ) because the reading can be cut in 其=そ, 処=こ). Otherwise, it
+; it assumed that the kana reading covers the whole kanji string.
+; You can define multiple entries to allow multiple readings for a same kanji reading.
+
+日本|にほん
+日本|にっぽん
+明日|あす
+大人|おとな
+河原|かわら
+川原|かわら
+昨日|きのう
+今日|きょう
+果物|くだもの
+今朝|けさ
+景色|けしき
+今年|ことし
+清水|しみず
+上手|じょうず
+七夕|たなばた
+一日|ついたち
+手伝|てつだ
+時計|とけい
+友達|ともだち
+兄|にい
+姉|ねえ
+母|かあ
+父|とう
+博士|はかせ
+二十日|はつか
+一人|ひとり
+二人|ふたり
+二日|ふつか
+下手|へた
+部屋|へや
+迷子|まいご
+真っ赤|まっか
+真っ青|まっさお
+真っ青|まさお
+眼鏡|めがね
+八百屋|やおや
+小豆|あずき
+硫黄|いおう
+意気地|いくじ
+田舎|いなか
+海原|うなばら
+乳母|うば
+笑顔|えがお
+叔父|おじ
+伯父|おじ
+乙女|おとめ
+叔母|おば
+伯母|おば
+鍛冶|かじ
+風邪|かぜ
+固唾|かたず
+為替|かわせ
+心地|ここち
+五月|さつき
+五月雨|さみだれ
+時雨|しぐれ
+尻尾|しっぽ
+竹刀|しない
+老舗|しにせ
+芝生|しばふ
+三味線|しゃみせん
+砂利|じゃり
+白髪|しらが
+相撲|すもう
+草履|ぞうり
+太刀|たち
+足袋|たび
+梅雨|つゆ
+凸凹|でこぼこ
+名残|なごり
+雪崩|なだれ
+二十歳|はたち
+波止場|はとば
+日和|ひより
+吹雪|ふぶき
+真面目|まじめ
+土産|みやげ
+息子|むすこ
+紅葉|もみじ
+木綿|もめん
+大和|やまと
+弥生|やよい
+行方|ゆくえ
+若人|わこうど
+河豚|ふぐ
+蜥蜴|とかげ
+海豚|いるか
+亜米利加|アメリカ|0:ア;1:メ;2:リ;3:カ
+巨頭|ごんどう
+時鳥|ほととぎす
+海老|えび
+向日葵|ひまわり
+竜胆|りんどう|0:りん;1:どう
+勿忘|わすれな
+団扇|うちわ|0:うち;1:わ
+独楽|こま
+螻蛄|おけら|0:お;1:けら
+螻蛄|けら
+薯蕷|とろろ
+薯蕷|やまのいも
+零余|ぬか
+零余|むか
+牡蠣|かき
+沙魚|はぜ
+安南|アンナン
+手水|ちょうず
+蝙蝠|かわほり|0:かわ;1:ほり
+蝙蝠|こうもり
+其処|そこ|0:そ;1:こ
+生憎|あいにく|0:あい;1:にく
+カ月|かげつ|0:か;1:げつ
+ケ月|かげつ|0:か;1:げつ
+ヶ月|かげつ|0:か;1:げつ
