@@ -76,3 +76,7 @@ I am aware of an issue that incorrectly cuts certain special expressions because
 If you have any questions or remarks regarding the project, or want to report errors, don't hesitate to contact me through my GitHub profile.
 
 You can also contribute directly very easily if you notice an error with a special expression, by editing the *SpecialExpressions.txt* file.
+
+##Licence
+
+This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
