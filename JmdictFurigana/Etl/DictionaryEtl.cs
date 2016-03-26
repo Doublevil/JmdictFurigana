@@ -19,13 +19,13 @@ namespace JmdictFurigana.Etl
 
         private static readonly XNamespace XmlNs = "http://www.w3.org/XML/1998/namespace";
 
-        private static readonly string XmlNode_Entry = "entry";
-        private static readonly string XmlNode_KanjiElement = "k_ele";
-        private static readonly string XmlNode_KanjiReading = "keb";
-        private static readonly string XmlNode_ReadingElement = "r_ele";
-        private static readonly string XmlNode_KanaReading = "reb";
-        private static readonly string XmlNode_ReadingConstraint = "re_restr";
-        private static readonly string XmlNode_NoKanji = "re_nokanji";
+        private const string XmlNode_Entry = "entry";
+        private const string XmlNode_KanjiElement = "k_ele";
+        private const string XmlNode_KanjiReading = "keb";
+        private const string XmlNode_ReadingElement = "r_ele";
+        private const string XmlNode_KanaReading = "reb";
+        private const string XmlNode_ReadingConstraint = "re_restr";
+        private const string XmlNode_NoKanji = "re_nokanji";
 
         #endregion
 
@@ -151,7 +151,7 @@ namespace JmdictFurigana.Etl
                 {
                     target.KanaReading = kanaReading;
                 }
-                else if (!vocabList.Where(v => v.KanaReading == kanaReading).Any() && target == targets.Last())
+                else if (vocabList.All(v => !(v.KanjiReading == target.KanjiReading && v.KanaReading == kanaReading)))
                 {
                     // If a target already has a kana reading, we need to create a new vocab.
                     vocabList.Add(new VocabEntry()

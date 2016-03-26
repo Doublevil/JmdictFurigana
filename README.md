@@ -63,16 +63,22 @@ These algorithms are run one after another and they all return the solutions fou
 
 There are also lists that contain exceptions and special readings. These lists are filled manually and will probably never be complete, given the massive amount of work that it represents.
 
-The latest release of the Furigana file was built in **less than two minutes and solved 169429 entries** out of 226556 (keep in mind that a lot of entries are not even possible to solve because they do not contain kanji).
+The latest release of the Furigana file was built in **about two minutes and solved 173456 entries** out of 231625 (keep in mind that a lot of entries are not even possible to solve because they do not contain kanji).
 
 ## Fiability
 
 While I do not guarantee that results are 100% accurate, they are verified with an algorithm that checks that no kanji is left without furigana and that the expression reads correctly.
 
-I am aware of an issue that incorrectly cuts certain special expressions because of the same-length algorithm. These issues are minor in number and importance.
+I am aware of an issue that incorrectly cuts certain special expressions because of the same-length algorithm. I consider these issues minor in number and importance.
 
 ##Contribution and contact
 
-If you have any questions or remarks regarding the project, or want to report errors, don't hesitate to contact me through my GitHub profile.
+If you have any questions or remarks regarding the project, or want to report errors, don't hesitate to file an issue or contact me through GitHub.
 
 You can also contribute directly very easily if you notice an error with a special expression, by editing the *SpecialExpressions.txt* file.
+
+##Release notes
+
+1.1 (2016-03-26):
+- Fixed [issue #2]https://github.com/Doublevil/JmdictFurigana/issues/2 (thank you stephenmac7)
+- Updated the JMDict file to the latest version as of 2016-03-26

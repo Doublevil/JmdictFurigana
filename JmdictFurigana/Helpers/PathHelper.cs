@@ -10,7 +10,7 @@ namespace JmdictFurigana.Helpers
     /// <summary>
     /// Provides paths to the external resources.
     /// </summary>
-    static class PathHelper
+    public static class PathHelper
     {
         public static readonly string ResourcesBasePath = "Resources";
         public static readonly string JmDictPath = Path.Combine(ResourcesBasePath, "JMdict.xml");
