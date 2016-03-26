@@ -77,6 +77,10 @@ If you have any questions or remarks regarding the project, or want to report er
 
 You can also contribute directly very easily if you notice an error with a special expression, by editing the *SpecialExpressions.txt* file.
 
+##Licence
+
+This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
+
 ##Release notes
 
 1.1 (2016-03-26):
