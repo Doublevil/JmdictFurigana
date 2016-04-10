@@ -83,6 +83,9 @@ This resource is distributed under the same licence as JMDict (Creative Commons 
 
 ##Release notes
 
+1.2 (2016-04-10):
+- Fixed [issue #3]https://github.com/Doublevil/JmdictFurigana/issues/3 (thank you fasiha)
+
 1.1 (2016-03-26):
 - Fixed [issue #2]https://github.com/Doublevil/JmdictFurigana/issues/2 (thank you stephenmac7)
 - Updated the JMDict file to the latest version as of 2016-03-26
