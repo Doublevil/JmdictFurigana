@@ -20,6 +20,8 @@ namespace JmdictFurigana
         /// </summary>
         public bool WriteUnsuccessfulWords { get; set; }
 
+        public HashSet<string> AlreadyWritten { get; set; } = new HashSet<string>();
+
         public void Write(IEnumerable<FuriganaSolutionSet> solutions)
         {
             int success = 0, total = 0;
@@ -48,9 +50,10 @@ namespace JmdictFurigana
                         logger.InfoFormat("X    {0}|{1}|???", solution.Vocab.KanjiReading, solution.Vocab.KanaReading);
                     }
 
-                    if (singleSolution != null || WriteUnsuccessfulWords)
+                    if (singleSolution != null && !AlreadyWritten.Contains(singleSolution.ToString()))
                     {
                         stream.WriteLine(singleSolution.ToString());
+                        AlreadyWritten.Add(singleSolution.ToString());
                     }
 
                     if (singleSolution != null)
