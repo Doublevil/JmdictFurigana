@@ -42,14 +42,14 @@ If the end index is not specified, the kana string applies only on the character
   - **0:がん** means that the がん applies to the character at index 0 in the kanji string, i.e. 頑.
   - **1:ば** means that the ば applies to the character at index 1 in the kanji string, i.e. 張.
 
-####全日本|ぜんにほん|0:ぜん;1-2:にほん
-- Our kanji reading is **全日本**.
-- Our kana reading is **ぜんにほん**.
-- Our furigana string is **0:ぜん;1-2:にほん**. It contains two parts: **0:ぜん** and **1-2:にほん**.
-  - **0:ぜん** means that the ぜん applies to the character at index 0 in the kanji string, i.e. 全.
-  - **1-2:にほん** means that the にほん applies to the characters between index 1 and 2 in the kanji string, i.e. 日本.
+####大人買い|おとながい|0-1:おとな;2:が
+- Our kanji reading is **大人買い**.
+- Our kana reading is **おとながい**.
+- Our furigana string is **0-1:おとな;2:が**. It contains two parts: **0-1:おとな** and **2:が**.
+  - **0-1:おとな** means that the おとな furigana applies to the characters between index 0 and 1 in the kanji string, i.e. 大人.
+  - **2:が** means that the が furigana applies to the character at index 2 in the kanji string, i.e. 買.
 
-**Note:** In this last example, the expression "日本" uses a special reading: "にほん". This reading cannot be cut in に and ほん, and this is why our "にほん" furigana applies to the whole expression.
+**Note:** In this last example, the expression "大人" uses a special reading: "おとな". This reading cannot be cut in お and とな or おと and な. This is why our "おとな" furigana applies to the whole expression.
 
 ## How does it work?
 
@@ -63,7 +63,7 @@ These algorithms are run one after another and they all return the solutions fou
 
 There are also lists that contain exceptions and special readings. These lists are filled manually and will probably never be complete, given the massive amount of work that it represents.
 
-The latest release of the Furigana file was built in **about two minutes and solved 173456 entries** out of 231625 (keep in mind that a lot of entries are not even possible to solve because they do not contain kanji).
+The latest release of the Furigana file was built in **about two minutes and solved 175424 entries** out of 231625 (keep in mind that a lot of entries are not even possible to "solve" because they do not contain kanji).
 
 ## Fiability
 
@@ -82,6 +82,10 @@ You can also contribute directly very easily if you notice an error with a speci
 This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
 
 ##Release notes
+
+1.3 (2016-08-21):
+- Fixed [issue #4]https://github.com/Doublevil/JmdictFurigana/issues/4 (thank you again fasiha)
+- Added lots of special readings to cover for other potential cases of missing readings. This brought up the number of solved entries by a few thousand.
 
 1.2 (2016-04-10):
 - Fixed [issue #3]https://github.com/Doublevil/JmdictFurigana/issues/3 (thank you fasiha)

@@ -19,9 +19,9 @@ namespace JmdictFurigana.Tests
         }
 
         [TestMethod]
-        public void Test_Furigana_Zennihon()
+        public void Test_Furigana_Ikkagetsu()
         {
-            Test_Furigana("全日本", "ぜんにほん", "0:ぜん;1-2:にほん");
+            Test_Furigana("一ヶ月", "いっかげつ", "0:いっ;1:か;2:げつ");
         }
 
         [TestMethod]
@@ -33,7 +33,8 @@ namespace JmdictFurigana.Tests
         [TestMethod]
         public void Test_Furigana_Ara()
         {
-            // Should fail. This is a weird kanji. The string containing only the kanji is Length == 2.
+            // Will fail. This is a weird kanji. The string containing only the kanji is Length == 2.
+            // Would be cool to find a solution but don't worry too much about it.
             Test_Furigana("𩺊", "あら", "0:あら");
         }
 

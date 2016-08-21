@@ -1,7 +1,6 @@
 ﻿; Exceptions should be added here.
 ; The readings in this file are used in priority.
 
-明後日|あさって|0-2:あさって
 八十島|やそしま|0:や;1:そ;2:しま
 厩出|まやだし|0:まや;1:だし
 青饅|あおぬた|0:あお;1:ぬた
