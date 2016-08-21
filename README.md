@@ -88,8 +88,8 @@ This resource is distributed under the same licence as JMDict (Creative Commons 
 - Added lots of special readings to cover for other potential cases of missing readings. This brought up the number of solved entries by a few thousand.
 
 1.2 (2016-04-10):
-- Fixed [issue #3]https://github.com/Doublevil/JmdictFurigana/issues/3 (thank you fasiha)
+- Fixed [issue #3](https://github.com/Doublevil/JmdictFurigana/issues/3) (thank you fasiha)
 
 1.1 (2016-03-26):
-- Fixed [issue #2]https://github.com/Doublevil/JmdictFurigana/issues/2 (thank you stephenmac7)
+- Fixed [issue #2](https://github.com/Doublevil/JmdictFurigana/issues/2) (thank you stephenmac7)
 - Updated the JMDict file to the latest version as of 2016-03-26
