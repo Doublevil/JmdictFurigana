@@ -63,7 +63,7 @@ These algorithms are run one after another and they all return the solutions fou
 
 There are also lists that contain exceptions and special readings. These lists are filled manually and will probably never be complete, given the massive amount of work that it represents.
 
-The latest release of the Furigana file was built in **about two minutes and solved 175424 entries** out of 231625 (keep in mind that a lot of entries are not even possible to "solve" because they do not contain kanji).
+The latest release of the Furigana file was built in **about two minutes and solved 177702 entries** out of 234814 (keep in mind that a lot of entries are not even possible to "solve" because they do not contain kanji).
 
 ## Fiability
 
@@ -82,6 +82,9 @@ You can also contribute directly very easily if you notice an error with a speci
 This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
 
 ##Release notes
+
+1.4 (2016-11-13):
+- Fixed [issue #5](https://github.com/Doublevil/JmdictFurigana/issues/5) (thank you yayoo1971)
 
 1.3 (2016-08-21):
 - Fixed [issue #4](https://github.com/Doublevil/JmdictFurigana/issues/4) (thank you again fasiha)
