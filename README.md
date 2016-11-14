@@ -17,7 +17,7 @@ In other words, where lexical parsers are identifying words in a sentence or an 
 
 As such, it is discouraged to use it in tools that provide furigana over entire sentences.
 
-### For non-initiates
+## For non-initiates
 
 The Jmdict is a Japanese word dictionary file that contains, for each entry:
 - The **kanji reading** of the entry (e.g. "頑張り屋"), that you can consider like the "proper writing" of the entry. It contains kanji (ideographic) characters and may also contain kana (phonetic) characters.
