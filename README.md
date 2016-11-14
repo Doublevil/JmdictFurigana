@@ -5,19 +5,28 @@
 ## What is it?
 
 This project aims to build an open-source furigana resource to complement the [Jmdict dictionary file](http://www.edrdg.org/jmdict/j_jmdict.html).
+What it does is provide a link between kanji reading and kana reading by attaching the kana portions on the right kanji characters in individual dictionary words.
 
 **Concretely, if you are building an application with the Jmdict file, you can use the output of this project to display beautiful furigana over your words instead of a plain kana string.**
+
+## What it is *NOT*
+
+JmdictFurigana is not a lexical parser. It is designed around individual words, not for sentences.
+
+In other words, where lexical parsers are identifying words in a sentence or an expression, JmdictFurigana aims to identify individual kanji readings in a word.
+
+As such, it is discouraged to use it in tools that provide furigana over entire sentences.
 
 ### For non-initiates
 
 The Jmdict is a Japanese word dictionary file that contains, for each entry:
-- The **kanji reading** of the entry (e.g. "手を取る"), that you can consider like the "proper writing" of the entry. It contains kanji (ideographic) characters and may also contain kana (phonetic) characters.
-- The **kana readings** of the entry (e.g. "てをとる" (tewotoru)), which is a kana (phonetic) string documenting the pronunciation of the entry. Each kanji character in the kanji reading has a matching pronunciation (one or more kana) that can vary depending on the expression it is used in. (e.g. 手 -> て (te) ; 取 -> と (to))
+- The **kanji reading** of the entry (e.g. "頑張り屋"), that you can consider like the "proper writing" of the entry. It contains kanji (ideographic) characters and may also contain kana (phonetic) characters.
+- The **kana readings** of the entry (e.g. "がんばりや" (ganbariya)), which is a kana (phonetic) string documenting the pronunciation of the entry. Each kanji character in the kanji reading has a matching pronunciation (one or more kana) that can vary depending on the expression it is used in. (e.g. 頑 -> がん (gan) ; 張 -> ば (ba) ; 屋 -> や (ya))
 - (The definitions and other informations that are not relevant to this project)
 
 Our goal is to attach the right parts of the kana reading to the right kanji in the kanji reading.
 
-![Capture](http://houhou-srs.com/file/Furigana.png)
+![Capture](http://houhou-srs.com/file/Furigana2.png)
 
 ## How can I use it?
 
