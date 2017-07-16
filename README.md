@@ -33,8 +33,8 @@ Our goal is to attach the right parts of the kana reading to the right kanji in 
 [Download the latest release of the furigana files.](https://github.com/Doublevil/JmdictFurigana/releases/latest)
 
 There are two files you can use:
-- *JmdictFurigana.txt* provides furigana for the EDICT (or JMDict) dictionary file entries.
-- *JmnedictFurigana.txt* provides furigana for the ENAMDICT (or JMnedict) dictionary file entries. *Use this one for proper names only.*
+- **JmdictFurigana.txt** provides furigana for the EDICT (or JMDict) dictionary file entries.
+- **JmnedictFurigana.txt** provides furigana for the ENAMDICT (or JMnedict) dictionary file entries. **Use this one for proper names only.**
 
 Both files are text files containing lines of data following this format:
 **&lt;kanji reading>|&lt;kana reading>|&lt;furigana string>**
@@ -48,14 +48,14 @@ If the end index is not specified, the kana string applies only on the character
 
 ### Let's take some examples
 
-####頑張る|がんばる|0:がん;1:ば
+#### 頑張る|がんばる|0:がん;1:ば
 - Our kanji reading is **頑張る**.
 - Our kana reading is **がんばる**.
 - Our furigana string is **0:がん;1:ば**. It contains two parts: **0:がん** and **1:ば**.
   - **0:がん** means that the がん applies to the character at index 0 in the kanji string, i.e. 頑.
   - **1:ば** means that the ば applies to the character at index 1 in the kanji string, i.e. 張.
 
-####大人買い|おとながい|0-1:おとな;2:が
+#### 大人買い|おとながい|0-1:おとな;2:が
 - Our kanji reading is **大人買い**.
 - Our kana reading is **おとながい**.
 - Our furigana string is **0-1:おとな;2:が**. It contains two parts: **0-1:おとな** and **2:が**.
@@ -88,21 +88,21 @@ I am aware of an issue that incorrectly cuts certain special expressions because
 
 The JmnedictFurigana file is new and a bit experimental. Quick checks show it seems to work, but don't hesitate to report issues with it.
 
-##Running the solution
+## Running the solution
 
 The solution is missing the ./JmdictFurigana/Resources/JMnedict.xml file because it is too big to commit here. You can download it on [the ENAMDICT/Jmnedict project page](http://www.edrdg.org/enamdict/enamdict_doc.html).
 
-##Contribution and contact
+## Contribution and contact
 
 If you have any questions or remarks regarding the project, or want to report errors, don't hesitate to file an issue or contact me through GitHub.
 
 You can also contribute directly very easily if you notice an error with a special expression, by editing the *SpecialExpressions.txt* file.
 
-##Licence
+## Licence
 
 This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
 
-##Release notes
+## Release notes
 
 2.0 (2017-07-16):
 - Implemented [issue #6](https://github.com/Doublevil/JmdictFurigana/issues/8), which means we now have a separate furigana file for the ENAMDICT/Jmnedict proper name dictionary file.
