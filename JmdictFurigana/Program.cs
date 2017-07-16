@@ -1,10 +1,6 @@
 ﻿using JmdictFurigana.Etl;
+using JmdictFurigana.Helpers;
 using JmdictFurigana.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JmdictFurigana
 {
@@ -15,14 +11,17 @@ namespace JmdictFurigana
             // Initialize log4net.
             log4net.Config.XmlConfigurator.Configure();
 
-            DictionaryEtl dictionaryEtl = new DictionaryEtl();
-            FuriganaBusiness furigana = new FuriganaBusiness();
+            // Jmdict
+            DictionaryEtl jmdictEtl = new DictionaryEtl(PathHelper.JmDictPath);
+            FuriganaBusiness furiganaJmdict = new FuriganaBusiness(DictionaryFile.Jmdict);
+            FuriganaFileWriter jmdictWriter = new FuriganaFileWriter(PathHelper.JmdictOutFilePath);
+            jmdictWriter.Write(furiganaJmdict.Execute(jmdictEtl.Execute()));
 
-            FuriganaFileWriter writer = new FuriganaFileWriter();
-            //writer.WriteUnsuccessfulWords = true;
-            writer.Write(furigana.Execute(dictionaryEtl.Execute()));
-
-            Console.ReadKey(false);
+            // Jmnedict
+            DictionaryEtl jmnedictEtl = new DictionaryEtl(PathHelper.JmneDictPath);
+            FuriganaBusiness furiganaJmnedict = new FuriganaBusiness(DictionaryFile.Jmnedict);
+            FuriganaFileWriter jmnedictWriter = new FuriganaFileWriter(PathHelper.JmnedictOutFilePath);
+            jmnedictWriter.Write(furiganaJmnedict.Execute(jmnedictEtl.Execute()));
         }
     }
 }

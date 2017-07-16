@@ -67,6 +67,7 @@
     <Compile Include="Helpers\ParsingHelper.cs" />
     <Compile Include="Helpers\PathHelper.cs" />
     <Compile Include="Helpers\SeparatorHelper.cs" />
+    <Compile Include="Models\DictionaryFile.cs" />
     <Compile Include="Models\FuriganaPart.cs" />
     <Compile Include="Models\FuriganaSolutionSet.cs" />
     <Compile Include="Models\SpecialExpression.cs" />
@@ -83,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\JMdict.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\JMnedict.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\OverrideFurigana.txt">

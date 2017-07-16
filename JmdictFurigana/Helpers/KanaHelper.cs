@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace JmdictFurigana.Helpers
 {
@@ -19,7 +15,7 @@ namespace JmdictFurigana.Helpers
             'ヤ','ユ','ヨ','ラ','リ','ル','レ','ロ','ワ','ヲ','ガ','ギ','グ',
             'ゲ','ゴ','ジ','ダ','デ','ド','バ','ビ','ブ','ベ','ボ','パ','ピ',
             'プ','ペ','ポ','ザ','ズ','ゼ','ゾ','ァ','ィ','ゥ','ェ','ォ','ン',
-            'ア','イ','ウ','エ','オ','ー','ヴ','・','、','。'
+            'ア','イ','ウ','エ','オ','ー','ヴ','・','、','。','ヱ','ヰ'
         };
 
         private static readonly char[] HiraganaDictionary = new char[]
@@ -30,7 +26,7 @@ namespace JmdictFurigana.Helpers
             'や','ゆ','よ','ら','り','る','れ','ろ','わ','を','が','ぎ','ぐ',
             'げ','ご','じ','だ','で','ど','ば','び','ぶ','べ','ぼ','ぱ','ぴ',
             'ぷ','ぺ','ぽ','ざ','ず','ぜ','ぞ','ぁ','ぃ','ぅ','ぇ','ぉ','ん',
-            'あ','い','う','え','お','ー','・','、','。'
+            'あ','い','う','え','お','ー','・','、','。','ゑ','ゐ'
         };
 
         #endregion

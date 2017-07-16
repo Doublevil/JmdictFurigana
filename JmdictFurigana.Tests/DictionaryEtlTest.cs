@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using JmdictFurigana.Etl;
 using JmdictFurigana.Helpers;
 using JmdictFurigana.Models;
@@ -20,7 +16,7 @@ namespace JmdictFurigana.Tests
         {
             // Arrange
             File.Copy("Resources/Waruguchi.xml", PathHelper.JmDictPath, true);
-            DictionaryEtl dictionaryEtl = new DictionaryEtl();
+            DictionaryEtl dictionaryEtl = new DictionaryEtl(PathHelper.JmDictPath);
             List<string> wanted = new List<string>()
             {
                 "悪口|あっこう",

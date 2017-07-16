@@ -1,11 +1,8 @@
 ﻿using JmdictFurigana.Helpers;
 using JmdictFurigana.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace JmdictFurigana.Etl
@@ -22,6 +19,7 @@ namespace JmdictFurigana.Etl
         private static readonly string XmlNode_ReadingMeaning = "reading_meaning";
         private static readonly string XmlNode_ReadingMeaningGroup = "rmgroup";
         private static readonly string XmlNode_Reading = "reading";
+        private static readonly string XmlNode_Nanori = "nanori";
 
         private static readonly string XmlAttribute_ReadingType = "r_type";
 
@@ -67,6 +65,7 @@ namespace JmdictFurigana.Etl
                 {
                     Character = c,
                     Readings = readings.ToList(),
+                    ReadingsWithNanori = readings.ToList(),
                     IsRealKanji = false
                 });
             }
@@ -109,6 +108,10 @@ namespace JmdictFurigana.Etl
                     kanji.Readings.AddRange(supp.Readings);
                     supplementaryKanji.Remove(supp);
                 }
+
+                // Read the nanori readings
+                var nanoriReadings = xreadingMeaning?.Elements(XmlNode_Nanori).Select(n => n.Value).ToList() ?? new List<string>();
+                kanji.ReadingsWithNanori = kanji.Readings.Union(nanoriReadings).Distinct().ToList();
 
                 // Return the kanji read and go to the next kanji node.
                 yield return kanji;

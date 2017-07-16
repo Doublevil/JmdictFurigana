@@ -4,8 +4,6 @@ using JmdictFurigana.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JmdictFurigana.Business
 {
@@ -66,11 +64,12 @@ namespace JmdictFurigana.Business
         /// that the kanji is found in.</param>
         /// <param name="isLastChar">Set to true if this kanji is the last character of the string
         /// that the kanji is found in.</param>
+        /// <param name="useNanori">Set to true to use nanori readings as well.</param>
         /// <returns>A list containing all potential readings that the kanji could take.</returns>
-        public static List<string> GetPotentialKanjiReadings(Kanji k, bool isFirstChar, bool isLastChar)
+        public static List<string> GetPotentialKanjiReadings(Kanji k, bool isFirstChar, bool isLastChar, bool useNanori)
         {
             List<string> output = new List<string>();
-            foreach (string reading in k.Readings)
+            foreach (string reading in (useNanori ? k.ReadingsWithNanori : k.Readings))
             {
                 string r = reading.Replace("-", string.Empty);
                 if (!KanaHelper.IsAllKatakana(r))

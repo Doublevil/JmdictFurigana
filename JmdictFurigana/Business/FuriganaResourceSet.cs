@@ -1,12 +1,9 @@
 ﻿using JmdictFurigana.Etl;
 using JmdictFurigana.Helpers;
 using JmdictFurigana.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JmdictFurigana.Business
 {
@@ -120,6 +117,9 @@ namespace JmdictFurigana.Business
             {
                 _kanjiDictionary[k.Character].Readings.AddRange(k.Readings);
                 _kanjiDictionary[k.Character].Readings = _kanjiDictionary[k.Character].Readings.Distinct().ToList();
+
+                _kanjiDictionary[k.Character].ReadingsWithNanori.AddRange(k.ReadingsWithNanori);
+                _kanjiDictionary[k.Character].ReadingsWithNanori = _kanjiDictionary[k.Character].ReadingsWithNanori.Distinct().ToList();
             }
             else
             {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using JmdictFurigana.Models;
 using JmdictFurigana.Helpers;
 using JmdictFurigana.Extensions;
@@ -15,6 +12,16 @@ namespace JmdictFurigana.Business
         /// Defines the maximal number of kana that can be attributed to a single kanji (performance trick).
         /// </summary>
         private static readonly int MaxKanaPerKanji = 4;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether nanori readings shall be used to attempt kanji reading solutions.
+        /// </summary>
+        public bool UseNanori { get; set; }
+
+        public KanjiReadingSolver(bool useNanori)
+        {
+            UseNanori = useNanori;
+        }
 
         /// <summary>
         /// Attempts to solve furigana by reading the kanji reading string and finding matching kanji
@@ -140,7 +147,7 @@ namespace JmdictFurigana.Business
             // Our character is a kanji. Try to consume kana strings that match that kanji.
             int remainingKanjiLength = v.KanjiReading.Length - currentIndexKanji - 1;
             List<string> kanjiReadings = ReadingExpander.GetPotentialKanjiReadings(k,
-                currentIndexKanji == 0, currentIndexKanji == v.KanjiReading.Length - 1);
+                currentIndexKanji == 0, currentIndexKanji == v.KanjiReading.Length - 1, UseNanori);
 
             // Iterate on the kana reading.
             for (int i = currentIndexKana; i < v.KanaReading.Length && i < currentIndexKana + MaxKanaPerKanji; i++)

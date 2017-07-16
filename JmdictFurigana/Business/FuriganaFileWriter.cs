@@ -1,11 +1,8 @@
-﻿using JmdictFurigana.Helpers;
-using JmdictFurigana.Models;
+﻿using JmdictFurigana.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace JmdictFurigana
 {
@@ -22,13 +19,23 @@ namespace JmdictFurigana
 
         public HashSet<string> AlreadyWritten { get; set; } = new HashSet<string>();
 
+        /// <summary>
+        /// Gets or sets the path where the file is written.
+        /// </summary>
+        public string OutputPath { get; set; }
+
+        public FuriganaFileWriter(string outputPath)
+        {
+            OutputPath = outputPath;
+        }
+
         public void Write(IEnumerable<FuriganaSolutionSet> solutions)
         {
             int success = 0, total = 0;
             log4net.ILog logger = log4net.LogManager.GetLogger("Writer");
             DateTime start = DateTime.Now;
 
-            using (StreamWriter stream = new StreamWriter(PathHelper.FuriganaOutFilePath, false, Encoding.UTF8))
+            using (StreamWriter stream = new StreamWriter(OutputPath, false, Encoding.UTF8))
             {
                 foreach (FuriganaSolutionSet solution in solutions)
                 {

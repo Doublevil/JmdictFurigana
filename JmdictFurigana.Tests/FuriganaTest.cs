@@ -1,11 +1,5 @@
-﻿using JmdictFurigana.Etl;
-using JmdictFurigana.Models;
+﻿using JmdictFurigana.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JmdictFurigana.Tests
 {
@@ -98,7 +92,7 @@ namespace JmdictFurigana.Tests
         public void Test_Furigana(string kanjiReading, string kanaReading, string expectedFurigana)
         {
             VocabEntry v = new VocabEntry(kanjiReading, kanaReading);
-            FuriganaBusiness business = new FuriganaBusiness();
+            FuriganaBusiness business = new FuriganaBusiness(DictionaryFile.Jmdict);
             FuriganaSolutionSet result = business.Execute(v);
 
             if (result.GetSingleSolution() == null)

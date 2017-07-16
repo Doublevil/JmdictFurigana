@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace JmdictFurigana.Models
 {
@@ -20,6 +16,11 @@ namespace JmdictFurigana.Models
         /// Gets or sets the list of possible readings of the kanji.
         /// </summary>
         public List<string> Readings { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of possible readings of the kanji, including the nanori readings.
+        /// </summary>
+        public List<string> ReadingsWithNanori { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating if this character should make the

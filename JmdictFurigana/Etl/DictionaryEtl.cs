@@ -1,11 +1,10 @@
-﻿using JmdictFurigana.Helpers;
-using JmdictFurigana.Models;
+﻿using JmdictFurigana.Models;
 using JmdictFurigana.Extensions;
-using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace JmdictFurigana.Etl
@@ -35,11 +34,21 @@ namespace JmdictFurigana.Etl
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// Gets or sets the path to the XML dictionary file to be parsed.
+        /// </summary>
+        public string DictionaryFilePath { get; set; }
+
+        #endregion
+
         #region Constructors
 
-        public DictionaryEtl()
+        public DictionaryEtl(string dictionaryFilePath)
         {
             _log = log4net.LogManager.GetLogger(this.GetType());
+            DictionaryFilePath = dictionaryFilePath;
         }
 
         #endregion
@@ -51,8 +60,17 @@ namespace JmdictFurigana.Etl
         /// </summary>
         public IEnumerable<VocabEntry> Execute()
         {
-            // Load the file.
-            XDocument xdoc = XDocument.Load(PathHelper.JmDictPath);
+            // Load the file as an XML document
+            XDocument xdoc;
+            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(File.ReadAllText(DictionaryFilePath))))
+            {
+                var settings = new XmlReaderSettings();
+                settings.DtdProcessing = DtdProcessing.Parse;
+                using (var reader = XmlReader.Create(stream, settings))
+                {
+                    xdoc = XDocument.Load(reader);
+                }
+            }
 
             // Load and return vocab items:
             // Browse each vocab entry.

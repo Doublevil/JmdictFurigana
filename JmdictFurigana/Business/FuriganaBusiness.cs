@@ -1,14 +1,7 @@
 ﻿using JmdictFurigana.Business;
-using JmdictFurigana.Helpers;
 using JmdictFurigana.Models;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace JmdictFurigana
 {
@@ -35,24 +28,30 @@ namespace JmdictFurigana
         /// </summary>
         public List<FuriganaSolver> Solvers { get; set; }
 
+        /// <summary>
+        /// Gets or sets the dictionary file to use.
+        /// </summary>
+        public DictionaryFile DictionaryFile { get; set; }
+
         #endregion
 
         #region Constructors
 
-        public FuriganaBusiness()
+        public FuriganaBusiness(DictionaryFile dictionaryFile)
         {
             _log = log4net.LogManager.GetLogger(this.GetType());
+            DictionaryFile = dictionaryFile;
             Initialize();
         }
 
-        public FuriganaBusiness(FuriganaResourceSet resourceSet)
-            : this()
+        public FuriganaBusiness(DictionaryFile dictionaryFile, FuriganaResourceSet resourceSet)
+            : this(dictionaryFile)
         {
             ResourceSet = resourceSet;
         }
 
-        public FuriganaBusiness(FuriganaResourceSet resourceSet, List<FuriganaSolver> solvers)
-            : this(resourceSet)
+        public FuriganaBusiness(DictionaryFile dictionaryFile, FuriganaResourceSet resourceSet, List<FuriganaSolver> solvers)
+            : this(dictionaryFile, resourceSet)
         {
             Solvers = solvers;
         }
@@ -74,7 +73,7 @@ namespace JmdictFurigana
                 Solvers = new List<FuriganaSolver>()
                 {
                     new KanaReadingSolver(),
-                    new KanjiReadingSolver(),
+                    new KanjiReadingSolver(useNanori:DictionaryFile == DictionaryFile.Jmnedict),
                     new LengthMatchSolver(),
                     new NoConsecutiveKanjiSolver(),
                     new OverrideSolver(),
