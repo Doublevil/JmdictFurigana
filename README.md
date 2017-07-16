@@ -105,7 +105,7 @@ This resource is distributed under the same licence as JMDict (Creative Commons 
 ## Release notes
 
 2.0 (2017-07-16):
-- Implemented [issue #6](https://github.com/Doublevil/JmdictFurigana/issues/8), which means we now have a separate furigana file for the ENAMDICT/Jmnedict proper name dictionary file.
+- Implemented [issue #8](https://github.com/Doublevil/JmdictFurigana/issues/8), which means we now have a separate furigana file for the ENAMDICT/Jmnedict proper name dictionary file.
 
 1.4 (2016-11-13):
 - Fixed [issue #5](https://github.com/Doublevil/JmdictFurigana/issues/5) (thank you yayoo1971)
