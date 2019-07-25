@@ -1,3 +1,4 @@
+
 # The JmdictFurigana project
 
 [Download the latest release of the JmdictFurigana file.](https://github.com/Doublevil/JmdictFurigana/releases/latest)
@@ -31,6 +32,52 @@ Our goal is to attach the right parts of the kana reading to the right kanji in 
 ## How can I use it?
 
 [Download the latest release of the furigana files.](https://github.com/Doublevil/JmdictFurigana/releases/latest)
+There are two sets of files you can use: either the json files, or the compact plain text format.
+
+### How to use the Json files
+There are two files you can use:
+- **JmdictFurigana.json** provides furigana for the EDICT (or JMDict) dictionary file entries.
+- **JmnedictFurigana.json** provides furigana for the ENAMDICT (or JMnedict) dictionary file entries. **Use this one for proper names only.**
+
+Please note that the json files available in the releases are zipped using gzip (hence the .gz file extension), because they are very large. You may need a third-party zip utility to unzip them.
+
+Both files are formatted in the exact same way: they are a json array containing entries as objects in the following format:
+- **text**: **string** containing the kanji reading of the entry.
+- **reading**: **string** containing the kana reading of the entry.
+- **furigana**: **array** containing each individual reading part, in order of reading, as objects containing:
+	- **ruby**: **string** containing the text of the reading part, which may contain kanji.
+	- **rt**: **optional string** containing the furigana for the text in the *ruby* field, when applicable. Will be left out in plain kana reading parts.
+
+#### Example Json entry
+Here is an example entry from the JmdictFurigana.json file:
+
+```
+{
+  "text": "大人買い",
+  "reading": "おとながい",
+  "furigana": [
+    {
+      "ruby": "大人",
+      "rt": "おとな"
+    }, {
+      "ruby": "買",
+      "rt": "が"
+    }, {
+      "ruby": "い"
+    }
+  ]
+}
+```
+
+In this example, the word is 大人買い, read as おとながい, and the *furigana* array breaks it down in 3 parts:
+- 大人 read as おとな
+- 買 read as が
+- い which is plain kana and thus does not need furigana (no *rt* value).
+
+**Note:** In this example, the expression "大人" uses a special reading: "おとな". This reading cannot be cut in お and とな or おと and な. This is why the "おとな" furigana applies to the whole expression.
+
+### How to use the plain text format
+Please note that this format is historical. It's probably a better idea to use the json files instead.
 
 There are two files you can use:
 - **JmdictFurigana.txt** provides furigana for the EDICT (or JMDict) dictionary file entries.
@@ -78,7 +125,7 @@ There are also lists that contain exceptions and special readings. These lists a
 
 The latest release of the Furigana file for the Jmdict was built in **about two minutes and solved 177702 entries** out of 234814 (keep in mind that a lot of entries are not even possible to "solve" because they do not contain kanji).
 
-The latest Jmnedict file solved 583280 out of 740077 entries in about 5 minutes.
+The latest Jmnedict file solved 583619 out of 740802 entries in about 5 minutes.
 
 ## Fiability
 
@@ -86,7 +133,7 @@ While results are not 100% accurate, they are verified with an algorithm that ch
 
 I am aware of an issue that incorrectly cuts certain special expressions because of the same-length algorithm. I consider these issues minor in number and importance.
 
-The JmnedictFurigana file is new and a bit experimental. Quick checks show it seems to work, but don't hesitate to report issues with it.
+The JmnedictFurigana file is a bit experimental. Quick checks show it seems to work, but don't hesitate to report issues with it.
 
 ## Running the solution
 
@@ -103,6 +150,9 @@ You can also contribute directly very easily if you notice an error with a speci
 This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
 
 ## Release notes
+
+2.1 (2019-07-24):
+- Implemented [issue #11](https://github.com/Doublevil/JmdictFurigana/issues/11): the project now also outputs a json file with data presented in an alternative way, which should make it a lot easier to parse. Both formats will continue to be supported. Thanks, fasiha.
 
 2.0 (2017-07-16):
 - Implemented [issue #8](https://github.com/Doublevil/JmdictFurigana/issues/8), which means we now have a separate furigana file for the ENAMDICT/Jmnedict proper name dictionary file.

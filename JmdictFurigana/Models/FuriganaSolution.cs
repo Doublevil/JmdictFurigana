@@ -226,6 +226,55 @@ namespace JmdictFurigana.Models
             Furigana.Sort();
         }
 
+        /// <summary>
+        /// Breaks down the solution to its individual reading parts.
+        /// </summary>
+        public IEnumerable<ReadingPart> BreakIntoParts()
+        {
+            int? kanaStart = null;
+            for (int i = 0; i < (Vocab?.KanjiReading?.Length ?? 0); i++)
+            {
+                var matchingFurigana = Furigana.FirstOrDefault(f => f.StartIndex == i);
+                if (matchingFurigana != null)
+                {
+                    // We are on a furigana start index.
+                    // If there was any kana, output that part first
+                    if (kanaStart.HasValue)
+                    {
+                        yield return new ReadingPart()
+                        {
+                            Text = Vocab?.KanjiReading?.Substring(kanaStart.Value, i - kanaStart.Value)
+                        };
+                        kanaStart = null;
+                    }
+
+                    // Then output the furigana part
+                    yield return new ReadingPart()
+                    {
+                        Text = Vocab?.KanjiReading?.Substring(i, matchingFurigana.EndIndex - i + 1),
+                        Furigana = matchingFurigana.Value
+                    };
+
+                    // Then set both i and kanaStart to the end index of the furigana part
+                    i = matchingFurigana.EndIndex;
+                }
+                else
+                {
+                    // We are not on a furigana-covered character, must be kana. Set kanaStart if not already set.
+                    kanaStart = kanaStart ?? i;
+                }
+            }
+
+            // Output the final kana part if any
+            if (kanaStart.HasValue)
+            {
+                yield return new ReadingPart()
+                {
+                    Text = Vocab?.KanjiReading?.Substring(kanaStart.Value)
+                };
+            }
+        }
+
         public override string ToString()
         {
             // Example output:

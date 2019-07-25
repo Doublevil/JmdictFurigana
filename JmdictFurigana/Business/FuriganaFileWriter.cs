@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using JmdictFurigana.Business;
+using Newtonsoft.Json;
 
 namespace JmdictFurigana
 {
@@ -35,8 +37,15 @@ namespace JmdictFurigana
             log4net.ILog logger = log4net.LogManager.GetLogger("Writer");
             DateTime start = DateTime.Now;
 
-            using (StreamWriter stream = new StreamWriter(OutputPath, false, Encoding.UTF8))
+            string jsonFileName = $"{Path.GetFileNameWithoutExtension(OutputPath)}.json";
+
+            using (var stream = new StreamWriter(OutputPath, false, Encoding.UTF8))
+            using (var jsonStream = new StreamWriter(jsonFileName, false, Encoding.UTF8))
+            using (var jsonWriter = new JsonTextWriter(jsonStream))
             {
+                jsonWriter.WriteStartArray();
+                var jsonSerializer = new JsonSerializer();
+                jsonSerializer.Converters.Add(new FuriganaSolutionJsonSerializer());
                 foreach (FuriganaSolutionSet solution in solutions)
                 {
                     FuriganaSolution singleSolution = solution.GetSingleSolution();
@@ -61,6 +70,7 @@ namespace JmdictFurigana
                     {
                         stream.WriteLine(singleSolution.ToString());
                         AlreadyWritten.Add(singleSolution.ToString());
+                        jsonSerializer.Serialize(jsonWriter, singleSolution);
                     }
 
                     if (singleSolution != null)
@@ -70,6 +80,7 @@ namespace JmdictFurigana
 
                     total++;
                 }
+                jsonWriter.WriteEndArray();
             }
 
             TimeSpan duration = DateTime.Now - start;

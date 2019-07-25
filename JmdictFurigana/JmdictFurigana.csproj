@@ -35,6 +35,9 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\FuriganaSolutionJsonSerializer.cs" />
     <Compile Include="Business\FuriganaResourceSet.cs" />
     <Compile Include="Business\FuriganaSolver.cs" />
     <Compile Include="Business\ReadingExpander.cs" />
@@ -70,6 +74,7 @@
     <Compile Include="Models\DictionaryFile.cs" />
     <Compile Include="Models\FuriganaPart.cs" />
     <Compile Include="Models\FuriganaSolutionSet.cs" />
+    <Compile Include="Models\ReadingPart.cs" />
     <Compile Include="Models\SpecialExpression.cs" />
     <Compile Include="Models\SpecialReading.cs" />
     <Compile Include="Models\VocabEntry.cs" />

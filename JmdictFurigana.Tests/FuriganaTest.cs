@@ -1,4 +1,5 @@
-﻿using JmdictFurigana.Models;
+﻿using System.Linq;
+using JmdictFurigana.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace JmdictFurigana.Tests
@@ -87,8 +88,7 @@ namespace JmdictFurigana.Tests
             Test_Furigana("風邪薬", "かぜぐすり", "0-1:かぜ;2:ぐすり");
             Test_Furigana("日独協会", "にちどくきょうかい", "0:にち;1:どく;2:きょう;3:かい");
         }
-
-
+        
         public void Test_Furigana(string kanjiReading, string kanaReading, string expectedFurigana)
         {
             VocabEntry v = new VocabEntry(kanjiReading, kanaReading);
@@ -103,6 +103,38 @@ namespace JmdictFurigana.Tests
             {
                 Assert.AreEqual(FuriganaSolution.Parse(expectedFurigana, v), result.GetSingleSolution());
             }
+        }
+
+        [TestMethod]
+        public void Test_BreakIntoParts_Akagaeruka()
+        {
+            var vocab = new VocabEntry("アカガエル科", "アカガエルか");
+            var solution = new FuriganaSolution(vocab, new FuriganaPart("か", 5));
+
+            var parts = solution.BreakIntoParts().ToList();
+
+            Assert.AreEqual(2, parts.Count);
+            Assert.AreEqual("アカガエル", parts[0].Text);
+            Assert.IsNull(parts[0].Furigana);
+            Assert.AreEqual("科", parts[1].Text);
+            Assert.AreEqual("か", parts[1].Furigana);
+        }
+
+        [TestMethod]
+        public void Test_BreakIntoParts_Otonagai()
+        {
+            var vocab = new VocabEntry("大人買い", "おとながい");
+            var solution = new FuriganaSolution(vocab, new FuriganaPart("おとな", 0, 1), new FuriganaPart("が", 2));
+
+            var parts = solution.BreakIntoParts().ToList();
+
+            Assert.AreEqual(3, parts.Count);
+            Assert.AreEqual("大人", parts[0].Text);
+            Assert.AreEqual("おとな", parts[0].Furigana);
+            Assert.AreEqual("買", parts[1].Text);
+            Assert.AreEqual("が", parts[1].Furigana);
+            Assert.AreEqual("い", parts[2].Text);
+            Assert.IsNull(parts[2].Furigana);
         }
     }
 }
