@@ -123,9 +123,9 @@ These algorithms are run one after another and they all return the solutions fou
 
 There are also lists that contain exceptions and special readings. These lists are filled manually and will probably never be complete, given the massive amount of work that it represents.
 
-The latest release of the Furigana file for the Jmdict was built in **about two minutes and solved 177702 entries** out of 234814 (keep in mind that a lot of entries are not even possible to "solve" because they do not contain kanji).
+The latest release of the Furigana file for the Jmdict was built in **about two minutes and solved 177770 entries** out of 234814 (keep in mind that a lot of entries are not even possible to "solve" because they do not contain kanji).
 
-The latest Jmnedict file solved 583619 out of 740802 entries in about 5 minutes.
+The latest Jmnedict file solved 584141 out of 741346 entries in about 3 minutes.
 
 ## Fiability
 
@@ -133,7 +133,7 @@ While results are not 100% accurate, they are verified with an algorithm that ch
 
 I am aware of an issue that incorrectly cuts certain special expressions because of the same-length algorithm. I consider these issues minor in number and importance.
 
-The JmnedictFurigana file is a bit experimental. Quick checks show it seems to work, but don't hesitate to report issues with it.
+The JmnedictFurigana file is less accurate, because proper names most often use special readings, weird contractions and the likes.
 
 ## Running the solution
 
@@ -150,6 +150,9 @@ You can also contribute directly very easily if you notice an error with a speci
 This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
 
 ## Release notes
+
+2.2 (2020-08-22):
+- Fixed [issue #12](https://github.com/Doublevil/JmdictFurigana/issues/12): added some special readings. This release is very minor (it only has about 60 more entries in the Jmdict, and a few hundred in the Jmnedict).
 
 2.1 (2019-07-24):
 - Implemented [issue #11](https://github.com/Doublevil/JmdictFurigana/issues/11): the project now also outputs a json file with data presented in an alternative way, which should make it a lot easier to parse. Both formats will continue to be supported. Thanks, fasiha.

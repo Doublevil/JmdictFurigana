@@ -27,6 +27,23 @@
 弥生|やよい
 竹刀|しない
 風邪|かぜ
+七夕|たなばた
+今年|ことし
+手伝|てつだ
+海原|うなばら
+乙女|おとめ
+砂利|じゃり
+波止場|はとば
+海老|えび
+勿忘|わすれな
+螻蛄|おけら
+零余|ぬか
+零余|むか
+真っ青|まさお
+天皇|てんのう
+経緯|いきさつ
+浪漫|ロマン
+浪漫|ろうまん
 
 ; All the readings below are extracted from http://www16.atpages.jp/kanjikentei/jukujikun.html
 ; Thank you to the people involved in making this page. :)

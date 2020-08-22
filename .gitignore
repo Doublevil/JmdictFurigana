@@ -49,3 +49,4 @@ JmdictFurigana.Tests/bin
 JmdictFurigana.Tests/obj
 TestResults
 *.suo
+/JmdictFurigana/Resources/JMnedict.xml
