@@ -8,9 +8,6 @@ namespace JmdictFurigana
     {
         public static void Main(string[] args)
         {
-            // Initialize log4net.
-            log4net.Config.XmlConfigurator.Configure();
-
             // Jmdict
             DictionaryEtl jmdictEtl = new DictionaryEtl(PathHelper.JmDictPath);
             FuriganaBusiness furiganaJmdict = new FuriganaBusiness(DictionaryFile.Jmdict);

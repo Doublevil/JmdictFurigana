@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
+using NLog;
 
 namespace JmdictFurigana.Etl
 {
@@ -30,7 +31,7 @@ namespace JmdictFurigana.Etl
 
         #region Fields
 
-        private log4net.ILog _log;
+        private ILogger _logger = LogManager.GetCurrentClassLogger();
 
         #endregion
 
@@ -47,7 +48,6 @@ namespace JmdictFurigana.Etl
 
         public DictionaryEtl(string dictionaryFilePath)
         {
-            _log = log4net.LogManager.GetLogger(this.GetType());
             DictionaryFilePath = dictionaryFilePath;
         }
 
@@ -66,6 +66,8 @@ namespace JmdictFurigana.Etl
             {
                 var settings = new XmlReaderSettings();
                 settings.DtdProcessing = DtdProcessing.Parse;
+                settings.MaxCharactersFromEntities = long.MaxValue;
+                settings.MaxCharactersInDocument = long.MaxValue;
                 using (var reader = XmlReader.Create(stream, settings))
                 {
                     xdoc = XDocument.Load(reader);

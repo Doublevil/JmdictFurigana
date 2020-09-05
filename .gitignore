@@ -50,3 +50,5 @@ JmdictFurigana.Tests/obj
 TestResults
 *.suo
 /JmdictFurigana/Resources/JMnedict.xml
+/.vs
+/JmdictFurigana.sln.DotSettings.user

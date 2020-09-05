@@ -1,92 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{395F6E90-FF36-4E9A-A08A-AACF3EBBE624}</ProjectGuid>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JmdictFurigana</RootNamespace>
-    <AssemblyName>JmdictFurigana</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Business\FuriganaSolutionJsonSerializer.cs" />
-    <Compile Include="Business\FuriganaResourceSet.cs" />
-    <Compile Include="Business\FuriganaSolver.cs" />
-    <Compile Include="Business\ReadingExpander.cs" />
-    <Compile Include="Business\ReadingCombiner.cs" />
-    <Compile Include="Business\ReadingCutter.cs" />
-    <Compile Include="Business\Solvers\KanaReadingSolver.cs" />
-    <Compile Include="Business\Solvers\KanjiReadingSolver.cs" />
-    <Compile Include="Business\Solvers\LengthMatchSolver.cs" />
-    <Compile Include="Business\Solvers\NoConsecutiveKanjiSolver.cs" />
-    <Compile Include="Business\Solvers\OverrideSolver.cs" />
-    <Compile Include="Business\Solvers\RepeatedKanjiSolver.cs" />
-    <Compile Include="Business\Solvers\SingleCharacterSolver.cs" />
-    <Compile Include="Business\Solvers\SingleKanjiSolver.cs" />
-    <Compile Include="Etl\KanjiEtl.cs" />
-    <Compile Include="Etl\DictionaryEtl.cs" />
-    <Compile Include="Extensions\ListExtensions.cs" />
-    <Compile Include="Extensions\XElementExtensions.cs" />
-    <Compile Include="Business\FuriganaBusiness.cs" />
-    <Compile Include="Business\FuriganaFileWriter.cs" />
-    <Compile Include="Helpers\KanaHelper.cs" />
-    <Compile Include="Helpers\ParsingHelper.cs" />
-    <Compile Include="Helpers\PathHelper.cs" />
-    <Compile Include="Helpers\SeparatorHelper.cs" />
-    <Compile Include="Models\DictionaryFile.cs" />
-    <Compile Include="Models\FuriganaPart.cs" />
-    <Compile Include="Models\FuriganaSolutionSet.cs" />
-    <Compile Include="Models\ReadingPart.cs" />
-    <Compile Include="Models\SpecialExpression.cs" />
-    <Compile Include="Models\SpecialReading.cs" />
-    <Compile Include="Models\VocabEntry.cs" />
-    <Compile Include="Models\FuriganaSolution.cs" />
-    <Compile Include="Models\Kanji.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\JMdict.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -94,32 +11,32 @@
     <Content Include="Resources\JMnedict.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\OverrideFurigana.txt">
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\OverrideFurigana.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\kanjidic2.xml">
+    <None Update="Resources\kanjidic2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SupplementaryKanji.txt">
+    <None Update="Resources\SupplementaryKanji.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SpecialReadings.txt">
+    <None Update="Resources\SpecialReadings.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NLog" Version="4.7.4" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
 </Project>

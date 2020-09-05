@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using JmdictFurigana.Business;
 using Newtonsoft.Json;
+using NLog;
 
 namespace JmdictFurigana
 {
@@ -34,7 +35,7 @@ namespace JmdictFurigana
         public void Write(IEnumerable<FuriganaSolutionSet> solutions)
         {
             int success = 0, total = 0;
-            log4net.ILog logger = log4net.LogManager.GetLogger("Writer");
+            var logger = LogManager.GetCurrentClassLogger();
             DateTime start = DateTime.Now;
 
             string jsonFileName = $"{Path.GetFileNameWithoutExtension(OutputPath)}.json";
@@ -54,16 +55,16 @@ namespace JmdictFurigana
                     {
                         if (singleSolution == null)
                         {
-                            logger.InfoFormat("➕   {0}", solution);
+                            logger.Info($"➕   {solution}");
                         }
                         else
                         {
-                            logger.InfoFormat("◯   {0}", solution);
+                            logger.Info($"◯   {solution}");
                         }
                     }
                     else
                     {
-                        logger.InfoFormat("X    {0}|{1}|???", solution.Vocab.KanjiReading, solution.Vocab.KanaReading);
+                        logger.Info($"X    {solution.Vocab.KanjiReading}|{solution.Vocab.KanaReading}|???");
                     }
 
                     if (singleSolution != null && !AlreadyWritten.Contains(singleSolution.ToString()))
@@ -84,8 +85,8 @@ namespace JmdictFurigana
             }
 
             TimeSpan duration = DateTime.Now - start;
-            logger.InfoFormat("Successfuly ended process with {0} out of {1} successfuly found furigana strings.", success, total);
-            logger.InfoFormat("Process took {0} seconds.", duration.TotalSeconds);
+            logger.Info($"Successfuly ended process with {success} out of {total} successfuly found furigana strings.");
+            logger.Info($"Process took {duration}.");
         }
     }
 }

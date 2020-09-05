@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using NLog;
 
 namespace JmdictFurigana.Etl
 {
@@ -30,16 +31,7 @@ namespace JmdictFurigana.Etl
 
         #region Fields
 
-        private log4net.ILog _log;
-
-        #endregion
-
-        #region Constructors
-
-        public KanjiEtl()
-        {
-            _log = log4net.LogManager.GetLogger(this.GetType());
-        }
+        private ILogger _logger = LogManager.GetCurrentClassLogger();
 
         #endregion
 

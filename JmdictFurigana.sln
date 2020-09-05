@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JmdictFurigana", "JmdictFurigana\JmdictFurigana.csproj", "{395F6E90-FF36-4E9A-A08A-AACF3EBBE624}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JmdictFurigana.Tests", "JmdictFurigana.Tests\JmdictFurigana.Tests.csproj", "{DA346E66-A8FB-45B3-B795-BBFEB9B1D997}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JmdictFurigana.Tests", "JmdictFurigana.Tests\JmdictFurigana.Tests.csproj", "{AE4F8AF9-BFC5-4B9C-BFFB-FDC0E54DDA3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,15 @@ Global
 		{395F6E90-FF36-4E9A-A08A-AACF3EBBE624}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{395F6E90-FF36-4E9A-A08A-AACF3EBBE624}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{395F6E90-FF36-4E9A-A08A-AACF3EBBE624}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA346E66-A8FB-45B3-B795-BBFEB9B1D997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA346E66-A8FB-45B3-B795-BBFEB9B1D997}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA346E66-A8FB-45B3-B795-BBFEB9B1D997}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA346E66-A8FB-45B3-B795-BBFEB9B1D997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE4F8AF9-BFC5-4B9C-BFFB-FDC0E54DDA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE4F8AF9-BFC5-4B9C-BFFB-FDC0E54DDA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE4F8AF9-BFC5-4B9C-BFFB-FDC0E54DDA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE4F8AF9-BFC5-4B9C-BFFB-FDC0E54DDA3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FED28981-223B-4C35-AD7A-77E5829AFCF0}
 	EndGlobalSection
 EndGlobal

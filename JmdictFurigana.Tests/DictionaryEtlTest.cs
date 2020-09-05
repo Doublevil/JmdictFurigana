@@ -1,4 +1,4 @@
-ï»¿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JmdictFurigana.Etl;
@@ -19,12 +19,12 @@ namespace JmdictFurigana.Tests
             DictionaryEtl dictionaryEtl = new DictionaryEtl(PathHelper.JmDictPath);
             List<string> wanted = new List<string>()
             {
-                "æ‚ªå£|ã‚ã£ã“ã†",
-                "æ‚ªå£|ã‚ã‚‹ãã¡",
-                "æ‚ªå£|ã‚ã‚‹ãã¡",
-                "æƒ¡å£|ã‚ã£ã“ã†",
-                "æƒ¡å£|ã‚ã‚‹ãã¡",
-                "æƒ¡å£|ã‚ã‚‹ãã¡"
+                "ˆ«Œû|‚ ‚Á‚±‚¤",
+                "ˆ«Œû|‚í‚é‚­‚¿",
+                "ˆ«Œû|‚í‚é‚®‚¿",
+                "œ¦Œû|‚ ‚Á‚±‚¤",
+                "œ¦Œû|‚í‚é‚­‚¿",
+                "œ¦Œû|‚í‚é‚®‚¿"
             };
 
             // Act

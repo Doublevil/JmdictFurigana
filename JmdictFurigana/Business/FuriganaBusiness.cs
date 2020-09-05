@@ -2,6 +2,7 @@
 using JmdictFurigana.Models;
 using System.Collections.Generic;
 using System.Linq;
+using NLog;
 
 namespace JmdictFurigana
 {
@@ -12,7 +13,7 @@ namespace JmdictFurigana
     {
         #region Fields
 
-        private log4net.ILog _log;
+        private ILogger _logger = LogManager.GetCurrentClassLogger();
 
         #endregion
 
@@ -39,7 +40,6 @@ namespace JmdictFurigana
 
         public FuriganaBusiness(DictionaryFile dictionaryFile)
         {
-            _log = log4net.LogManager.GetLogger(this.GetType());
             DictionaryFile = dictionaryFile;
             Initialize();
         }
