@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using JmdictFurigana.Business;
+using JmdictFurigana.Helpers;
 using JmdictFurigana.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,6 +10,19 @@ namespace JmdictFurigana.Tests
     [TestClass]
     public class FuriganaTest
     {
+        /// <summary>
+        /// Downloads missing resources.
+        /// </summary>
+        [TestInitialize]
+        public void Initialize()
+        {
+            var downloader = new ResourceDownloader();
+            if (!File.Exists(PathHelper.KanjiDic2Path))
+                downloader.DownloadKanjidic();
+            if (!File.Exists(PathHelper.JmDictPath))
+                downloader.DownloadJmdict();
+        }
+
         [TestMethod]
         public void Test_Furigana_Ganbaru()
         {
