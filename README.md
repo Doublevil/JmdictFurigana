@@ -8,7 +8,7 @@
 This project aims to build an open-source furigana resource to complement the [EDICT/Jmdict](http://www.edrdg.org/jmdict/j_jmdict.html) and [ENAMDICT/Jmnedict](http://www.edrdg.org/enamdict/enamdict_doc.html) dictionary files.
 What it does is provide a link between kanji reading and kana reading by attaching the kana portions on the right kanji characters in individual dictionary words.
 
-**Concretely, if you are building an application with the EDICT/Jmdict file, you can use the output of this project to display beautiful furigana over your words instead of a plain kana string.**
+**Concretely, if you are building an application with the EDICT/Jmdict file, you can use the output of this project to display pretty furigana over your words instead of a plain kana string.**
 
 ## What it is *NOT*
 
@@ -32,7 +32,10 @@ Our goal is to attach the right parts of the kana reading to the right kanji in 
 ## How can I use it?
 
 [Download the latest release of the furigana files.](https://github.com/Doublevil/JmdictFurigana/releases/latest)
-There are two sets of files you can use: either the json files, or the compact plain text format.
+
+A new release is built automatically the 25th of every month through GitHub actions, with updated dictionary files. As Jmdict keeps evolving, so does JmdictFurigana.
+
+In the latest release, there are two sets of files you can use: either the json files, or the compact plain text format.
 
 ### How to use the Json files
 There are two files you can use:
@@ -77,7 +80,7 @@ In this example, the word is 大人買い, read as おとながい, and the *fur
 **Note:** In this example, the expression "大人" uses a special reading: "おとな". This reading cannot be cut in お and とな or おと and な. This is why the "おとな" furigana applies to the whole expression.
 
 ### How to use the plain text format
-Please note that this format is historical. It's probably a better idea to use the json files instead.
+This format is historical but will keep being supported, because it is compact. You might want to use the json files instead, as they are probably easier to parse.
 
 There are two files you can use:
 - **JmdictFurigana.txt** provides furigana for the EDICT (or JMDict) dictionary file entries.
@@ -150,6 +153,10 @@ You can also contribute directly very easily if you notice an error with a speci
 This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
 
 ## Release notes
+
+2.3 (2020-09-24):
+- [Issue #14](https://github.com/Doublevil/JmdictFurigana/issues/14): implemented a GitHub Actions workflow to automatically create a new release with JmdictFurigana files built from updated dictionary files monthly.
+- [Issue #15](https://github.com/Doublevil/JmdictFurigana/issues/15): added a reading for　贅 so that 贅沢 is cut correctly.
 
 2.2 (2020-08-22):
 - Fixed [issue #12](https://github.com/Doublevil/JmdictFurigana/issues/12): added some special readings. This release is very minor (it only has about 60 more entries in the Jmdict, and a few hundred in the Jmnedict).

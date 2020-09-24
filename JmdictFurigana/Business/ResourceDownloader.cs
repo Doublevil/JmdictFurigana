@@ -48,6 +48,7 @@ namespace JmdictFurigana.Business
         /// <param name="targetPath">Path of the resulting file.</param>
         private void DownloadGzFile(string uri, string targetPath)
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(targetPath));
             using var webClient = new WebClient();
             using var httpStream = webClient.OpenRead(uri);
             using var gzipStream = new GZipStream(httpStream, CompressionMode.Decompress);

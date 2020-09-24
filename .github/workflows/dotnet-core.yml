@@ -1,0 +1,86 @@
+name: .NET Core
+
+on:
+  schedule:
+    - cron: '0 8 26 * *' # At 08:00 on day-of-month 25
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+    - name: Run
+      run: |
+        cd JmdictFurigana
+        dotnet run --configuration: Release
+    - name: Generate version number
+      uses: HardNorth/github-version-generate@v1.0.1
+      with:
+        version-source: file
+        version-file: JmdictFurigana/JmdictFurigana.csproj
+        version-file-extraction-pattern: <Version>([0-9]+[.][0-9]+[.][0-9]+)[.].*</Version>
+        release-version-generate-build-metadata: 'true'
+        release-version-build-metadata-pattern: '{date[YYYY-MM-DD]}'
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.RELEASE_VERSION }}
+        release_name: JmdictFurigana ${{ env.RELEASE_VERSION }}
+        body: 'This is an automated release made with updated dictionary files on the latest version.'
+        draft: false
+        prerelease: false
+    - name: Upload JmdictFurigana.txt
+      id: upload-jmdict-furigana-txt
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmdictFurigana.txt
+        asset_name: JmdictFurigana.txt
+        asset_content_type: text/plain
+    - name: Upload JmdictFurigana.json
+      id: upload-jmdict-furigana-json
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmdictFurigana.json
+        asset_name: JmdictFurigana.json
+        asset_content_type: application/json
+    - name: Upload JmnedictFurigana.txt
+      id: upload-jmnedict-furigana-txt
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmnedictFurigana.txt
+        asset_name: JmnedictFurigana.txt
+        asset_content_type: text/plain
+    - name: Upload JmnedictFurigana.json
+      id: upload-jmnedict-furigana-json
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmnedictFurigana.json
+        asset_name: JmnedictFurigana.json
+        asset_content_type: application/json

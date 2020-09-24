@@ -1,8 +1,7 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JmdictFurigana.Etl;
-using JmdictFurigana.Helpers;
 using JmdictFurigana.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,16 +14,15 @@ namespace JmdictFurigana.Tests
         public void ExecuteTest_Waruguchi_FourReadings()
         {
             // Arrange
-            File.Copy("Resources/Waruguchi.xml", PathHelper.JmDictPath, true);
-            DictionaryEtl dictionaryEtl = new DictionaryEtl(PathHelper.JmDictPath);
+            DictionaryEtl dictionaryEtl = new DictionaryEtl(Path.Combine("Resources", "Waruguchi.xml"));
             List<string> wanted = new List<string>()
             {
-                "ˆ«Œû|‚ ‚Á‚±‚¤",
-                "ˆ«Œû|‚í‚é‚­‚¿",
-                "ˆ«Œû|‚í‚é‚®‚¿",
-                "œ¦Œû|‚ ‚Á‚±‚¤",
-                "œ¦Œû|‚í‚é‚­‚¿",
-                "œ¦Œû|‚í‚é‚®‚¿"
+                "æ‚ªå£|ã‚ã£ã“ã†",
+                "æ‚ªå£|ã‚ã‚‹ãã¡",
+                "æ‚ªå£|ã‚ã‚‹ãã¡",
+                "æƒ¡å£|ã‚ã£ã“ã†",
+                "æƒ¡å£|ã‚ã‚‹ãã¡",
+                "æƒ¡å£|ã‚ã‚‹ãã¡"
             };
 
             // Act
@@ -32,7 +30,6 @@ namespace JmdictFurigana.Tests
             List<string> resultsAsStrings = results.Select(r => r.ToString()).ToList();
 
             // Assert
-            Assert.AreEqual(6, results.Count);
             CollectionAssert.AreEquivalent(wanted, resultsAsStrings);
         }
     }

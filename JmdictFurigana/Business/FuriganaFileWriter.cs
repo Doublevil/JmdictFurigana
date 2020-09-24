@@ -55,16 +55,16 @@ namespace JmdictFurigana
                     {
                         if (singleSolution == null)
                         {
-                            logger.Info($"➕   {solution}");
+                            logger.Debug($"➕   {solution}");
                         }
                         else
                         {
-                            logger.Info($"◯   {solution}");
+                            logger.Debug($"◯   {solution}");
                         }
                     }
                     else
                     {
-                        logger.Info($"X    {solution.Vocab.KanjiReading}|{solution.Vocab.KanaReading}|???");
+                        logger.Debug($"X    {solution.Vocab.KanjiReading}|{solution.Vocab.KanaReading}|???");
                     }
 
                     if (singleSolution != null && !AlreadyWritten.Contains(singleSolution.ToString()))
