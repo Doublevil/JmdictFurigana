@@ -26,7 +26,7 @@ jobs:
         cd JmdictFurigana
         dotnet run --configuration: Release
     - name: Generate version number
-      uses: HardNorth/github-version-generate@v1.0.1
+      uses: HardNorth/github-version-generate@v1.0.2
       with:
         version-source: file
         version-file: JmdictFurigana/JmdictFurigana.csproj
