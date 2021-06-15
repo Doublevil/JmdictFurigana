@@ -13,9 +13,9 @@ namespace JmdictFurigana.Business
         private const string Kanjidic2Uri = "http://www.edrdg.org/kanjidic/kanjidic2.xml.gz";
 
         // Note that we use the English-only version of the Jmdict file, because it's lighter and we don't need translations
-        private const string JmdictUri = "ftp://ftp.monash.edu.au/pub/nihongo/JMdict_e.gz";
+        private const string JmdictUri = "http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz";
 
-        private const string JmnedictUri = "http://ftp.monash.edu/pub/nihongo/JMnedict.xml.gz";
+        private const string JmnedictUri = "http://ftp.edrdg.org/pub/Nihongo/JMnedict.xml.gz";
 
         /// <summary>
         /// Downloads the Kanjidic2 XML file to its resource path.
