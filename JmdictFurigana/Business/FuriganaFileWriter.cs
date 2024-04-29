@@ -2,10 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Text;
 using JmdictFurigana.Business;
 using Newtonsoft.Json;
 using NLog;
+using SharpCompress.Common;
+using SharpCompress.Writers;
 
 namespace JmdictFurigana
 {
@@ -82,6 +85,32 @@ namespace JmdictFurigana
                     total++;
                 }
                 jsonWriter.WriteEndArray();
+            }
+            
+            // Create a zip of the json file
+            using (var zip = ZipFile.Open($"{jsonFileName}.zip", ZipArchiveMode.Create))
+            {
+                zip.CreateEntryFromFile(jsonFileName, Path.GetFileName(jsonFileName));
+            }
+            
+            // Create a tar of the json file
+            using (var tarStream = new MemoryStream())
+            {
+                // Create a .tar file in the MemoryStream
+                using (var tarWriter = WriterFactory.Open(tarStream, ArchiveType.Tar, CompressionType.None))
+                {
+                    tarWriter.Write(jsonFileName, jsonFileName);
+                }
+
+                // Reset the position of the MemoryStream to the beginning
+                tarStream.Position = 0;
+
+                // Compress the .tar file in the MemoryStream directly into a .tar.gz file
+                using (var gzFileStream = File.OpenWrite($"{jsonFileName}.tar.gz"))
+                using (var gzStream = new GZipStream(gzFileStream, CompressionMode.Compress))
+                {
+                    tarStream.CopyTo(gzStream);
+                }
             }
 
             TimeSpan duration = DateTime.Now - start;

@@ -37,6 +37,8 @@ A new release is built automatically the 25th of every month through GitHub acti
 
 In the latest release, there are two sets of files you can use: either the json files, or the compact plain text format.
 
+Note that the json files are also available in zipped formats (both .zip and .tar.gz) for lighter downloads.
+
 ### How to use the Json files
 There are two files you can use:
 - **JmdictFurigana.json** provides furigana for the EDICT (or JMDict) dictionary file entries.
@@ -153,6 +155,9 @@ You can also contribute directly very easily if you notice an error with a speci
 This resource is distributed under the same licence as JMDict (Creative Commons Attribution-ShareAlike Licence).
 
 ## Release notes
+
+2.3.1 (2024-04-29):
+- [Issue #18](https://github.com/Doublevil/JmdictFurigana/issues/18): added zipped json files to future releases for lighter downloads.
 
 2.3 (2020-09-24):
 - [Issue #14](https://github.com/Doublevil/JmdictFurigana/issues/14): implemented a GitHub Actions workflow to automatically create a new release with JmdictFurigana files built from updated dictionary files monthly.

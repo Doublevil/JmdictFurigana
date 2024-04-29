@@ -64,6 +64,26 @@ jobs:
         asset_path: JmdictFurigana/JmdictFurigana.json
         asset_name: JmdictFurigana.json
         asset_content_type: application/json
+    - name: Upload JmdictFurigana.json.zip
+      id: upload-jmdict-furigana-json-zip
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmdictFurigana.json.zip
+        asset_name: JmdictFurigana.json.zip
+        asset_content_type: application/zip
+    - name: Upload JmdictFurigana.json.tar.gz
+      id: upload-jmdict-furigana-json-tar-gz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmdictFurigana.json.tar.gz
+        asset_name: JmdictFurigana.json.tar.gz
+        asset_content_type: application/gzip
     - name: Upload JmnedictFurigana.txt
       id: upload-jmnedict-furigana-txt
       uses: actions/upload-release-asset@v1
@@ -84,3 +104,23 @@ jobs:
         asset_path: JmdictFurigana/JmnedictFurigana.json
         asset_name: JmnedictFurigana.json
         asset_content_type: application/json
+    - name: Upload JmnedictFurigana.json.zip
+      id: upload-jmnedict-furigana-json-zip
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmnedictFurigana.json.zip
+        asset_name: JmnedictFurigana.json.zip
+        asset_content_type: application/zip
+    - name: Upload JmnedictFurigana.json.tar.gz
+      id: upload-jmnedict-furigana-json-tar-gz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: JmdictFurigana/JmnedictFurigana.json.tar.gz
+        asset_name: JmnedictFurigana.json.tar.gz
+        asset_content_type: application/gzip
