@@ -3,6 +3,7 @@ name: .NET Core
 on:
   schedule:
     - cron: '0 9 25 * *' # At 09:00 on day-of-month 25
+  workflow_dispatch:
 
 jobs:
   build:
